@@ -26,9 +26,9 @@ spring:
   #=================================================Mysql Config=================================================
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://152.136.97.217:3306/seckill?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&nullNamePatternMatchesAll=true&zeroDateTimeBehavior=convertToNull
+    username: username
+    password: password
+    url: jdbc:mysql://{host}:{ip}/{database}
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 5
