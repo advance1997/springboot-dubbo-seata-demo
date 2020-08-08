@@ -73,38 +73,38 @@ public class SeataConfig {
         return new DataSourceTransactionManager(dataSourceProxy);
     }
 
-//    /**
-//     * 初始化Mybatis-plus的sqlSessionFactory
-//     * @Param: dataSourceProxy  datasource proxy
-//     * @Return: DataSourceProxy  datasource proxy
-//     */
-//    @Bean
-//    public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
-//        MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
-//
-//        // 配置mybatis-plus的分页
-//        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-//        Interceptor[] plugins = {paginationInterceptor};
-//        sqlSessionFactoryBean.setPlugins(plugins);
-//        sqlSessionFactoryBean.setDataSource(dataSourceProxy);
-//        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-//                .getResources("classpath*:/mapper/*.xml"));
-//        // 配置spring的本地事务
-//        sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
-//
-//        // 配置mybatis-plus的逻辑删除
-//        sqlSessionFactoryBean.setGlobalConfig(new GlobalConfig().setSqlInjector(new LogicSqlInjector()));
-//
-//        // 配置mybatis-plus的log打印
-//        MybatisConfiguration cfg = new MybatisConfiguration();
-//        cfg.setJdbcTypeForNull(JdbcType.NULL);
-//        cfg.setMapUnderscoreToCamelCase(true);
-//        cfg.setCacheEnabled(false);
-//        cfg.setLogImpl(StdOutImpl.class);
-//        sqlSessionFactoryBean.setConfiguration(cfg);
-//
-//        return sqlSessionFactoryBean.getObject();
-//    }
+    /**
+     * 初始化Mybatis-plus的sqlSessionFactory
+     * @Param: dataSourceProxy  datasource proxy
+     * @Return: DataSourceProxy  datasource proxy
+     */
+    @Bean
+    public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
+        MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
+
+        // 配置mybatis-plus的分页
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        Interceptor[] plugins = {paginationInterceptor};
+        sqlSessionFactoryBean.setPlugins(plugins);
+        sqlSessionFactoryBean.setDataSource(dataSourceProxy);
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
+                .getResources("classpath*:/mapper/*.xml"));
+        // 配置spring的本地事务
+        sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
+
+        // 配置mybatis-plus的逻辑删除
+        sqlSessionFactoryBean.setGlobalConfig(new GlobalConfig().setSqlInjector(new LogicSqlInjector()));
+
+        // 配置mybatis-plus的log打印
+        MybatisConfiguration cfg = new MybatisConfiguration();
+        cfg.setJdbcTypeForNull(JdbcType.NULL);
+        cfg.setMapUnderscoreToCamelCase(true);
+        cfg.setCacheEnabled(false);
+        cfg.setLogImpl(StdOutImpl.class);
+        sqlSessionFactoryBean.setConfiguration(cfg);
+
+        return sqlSessionFactoryBean.getObject();
+    }
 
     /**
      * 初始化全局事务Scanner
