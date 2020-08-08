@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.advance.user.provider.mapper.UserMapper">
+
+    <select id="listUserPage" resultType="com.advance.domain.vo.UserVO" parameterType="com.advance.domain.dto.UserDTO">
+        SELECT
+            * 
+        FROM
+            user 
+        WHERE
+            1 =1
+            <if test="param.account != null and param.account != ''">
+                AND account like concat('%', concat(#{param.account}, '%'))
+            </if>
+            <if test="param.name != null and param.name != ''">
+                AND name like concat('%', concat(#{param.name}, '%'))
+            </if>
+            <if test="param.phone != null and param.phone != ''">
+                AND phone like concat('%', concat(#{param.phone}, '%'))
+            </if>
+            <if test="param.status != null and param.status != ''">
+                AND status = #{status}
+            </if>
+        ORDER BY update_time DESC
+    </select>
+
+</mapper>

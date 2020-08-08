@@ -1,0 +1,19 @@
+#当前服务名
+dubbo:
+  application:
+    id: bussiness-provider
+    name: bussiness-provider
+    qos-enable: false
+  #注册中心的协议和地址
+  registry:
+    protocol: zookeeper
+    address: 106.55.160.136:2181
+  #    address: 152.136.97.217:2181
+  protocol:
+    name: dubbo
+    port: -1
+server:
+  port: 3005
+spring:
+  application:
+    name: bussiness-provider

@@ -1,0 +1,21 @@
+#========================================server config=====================================
+server:
+  port: 3006
+#========================================dubbo config=====================================
+dubbo:
+  application:
+    id: dubbo-web
+    name: dubbo-web
+    qos-enable: false
+  #注册中心的协议和地址
+  registry:
+    protocol: zookeeper
+    address: 106.55.160.136:2181
+  #    address: 152.136.97.217:2181
+  protocol:
+    name: dubbo
+    port: -1
+#========================================spring config=====================================
+spring:
+  application:
+    name: dubbo-web

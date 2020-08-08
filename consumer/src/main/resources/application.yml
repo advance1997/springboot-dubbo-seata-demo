@@ -1,0 +1,19 @@
+#当前服务名
+dubbo:
+  application:
+    name: dubbo-service-consumer
+    id: dubbo-service-consumer
+    qos-port: 22943
+  #注册中心的协议和地址
+  registry:
+    protocol: zookeeper
+    address: 106.55.160.136:2181
+  #    address: 152.136.97.217:2181
+  protocol:
+    name: dubbo
+    port: -1
+server:
+  port: 3050
+spring:
+  application:
+    name: dubbo-service-consumer

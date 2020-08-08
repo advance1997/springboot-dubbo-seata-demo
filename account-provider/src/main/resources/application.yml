@@ -1,0 +1,47 @@
+#=================================================Dubbo Config=================================================
+#当前服务名
+dubbo:
+  application:
+    id: account-provider
+    name: account-provider
+    qos-enable: false
+  #注册中心的协议和地址
+  registry:
+    protocol: zookeeper
+    address: 106.55.160.136:2181
+  #    address: 152.136.97.217:2181
+  protocol:
+    name: dubbo
+    port: -1
+
+#=================================================WebServer Config=================================================
+server:
+  port: 3002
+spring:
+  application:
+    name: account-provider
+  main:
+    allow-bean-definition-overriding: true
+
+  #=================================================Mysql Config=================================================
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://152.136.97.217:3306/seckill?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&nullNamePatternMatchesAll=true&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+#=================================================Mybatis-Plus Config=================================================
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    call-setters-on-nulls: true
